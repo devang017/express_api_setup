@@ -2,20 +2,20 @@ import userService from '../services/userService.js';
 
 class UserController {
     async getProfile(req, res, next) {
-        res.status(200).json({ success: true, data: req.user });
+        res.status(200).json({ success: true, message: "User fetched successfully.", data: req.user });
     }
 
     async list(req, res, next) {
         try {
             const users = await userService.getAllUsers();
-            res.status(200).json({ success: true, data: users });
+            res.status(200).json({ success: true, message: "Users fetched successfully.", data: users });
         } catch (error) { next(error); }
     }
 
     async getById(req, res, next) {
         try {
             const user = await userService.getUserById(req.params.id);
-            res.status(200).json({ success: true, data: user });
+            res.status(200).json({ success: true, message: "User fetched successfully.", data: user });
         } catch (error) { next(error); }
     }
 
