@@ -16,6 +16,6 @@ export const validate = (schema) => (req, res, next) => {
         });
     }
 
-    req.body = result.data;
+    req.validated = result.data;
     next(); // Data is valid, proceed to controller!
 };
